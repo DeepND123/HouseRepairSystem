@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Category Dropdown</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container my-5">
+    <h2 class="mb-4">List a Product</h2>
+    <form>
+      <!-- Product Name -->
+      <div class="mb-3">
+        <label for="productName" class="form-label">Product Name</label>
+        <input type="text" class="form-control" id="productName" placeholder="Enter product name">
+      </div>
+
+      <!-- Category Dropdown -->
+      <div class="mb-3">
+        <label for="productCategory" class="form-label">Category</label>
+        <select class="form-select" id="productCategory">
+          <option selected disabled>Choose a category</option>
+          <option value="HVAC">HVAC & Climate Control</option>
+          <option value="Repairs">Repairs & Maintenance</option>
+          <option value="Construction">Construction & Installation</option>
+          <option value="Remodeling">Home Remodeling & Improvements</option>
+          <!-- Add more categories as needed -->
+        </select>
+      </div>
+
+      <!-- Product Description -->
+      <div class="mb-3">
+        <label for="productDescription" class="form-label">Product Description</label>
+        <textarea class="form-control" id="productDescription" rows="4" placeholder="Enter product description"></textarea>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-primary">List Product</button>
+    </form>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

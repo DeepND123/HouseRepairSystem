@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html><!--lang="en" data-bs-theme="dark"-->
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--link css file-->
+    <link rel="stylesheet" href="RH-Style.css">
+
+    <script type="text/javascript" src="jquery-3.7.1.js"></script>
+    <!-- Link jQuery file -->
+    <script src="RH-scripts.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="bootsrap/css/bootstrap.min.css">
+    <script type="text/javascript" src="bootsrap/js/bootstrap.min.js"></script>
+
+    <!--favicon-->
+    <link rel="icon" type="image/x-icon" href="Source/fevi.png">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <title>Repair Helper</title>
+
+    <style>
+        body {
+            background-image: url('Source/login-form-img.png'); 
+            background-position-x: right;
+            background-position-y: center;
+            background-repeat: no-repeat; 
+        }
+
+        .content {
+            position: relative;
+            z-index: 1; 
+            padding: 20px;
+        }
+        #Register-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: auto;
+            height: 100%;
+            padding: 20px;
+            background-color: white;
+            border: 2px solid #ddd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: none; /* Initially hidden */
+            background-color: #F5F5F7;
+        }
+
+        /* Optional background overlay */
+        #Register-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none; /* Initially hidden */
+        }
+    </style>
+
+</head>
+
+<body class="container-fluid">
+
+    <div class="row content" style="background-color:white">
+        <div class="col-sm-1">
+            <a class="navbar-brand" href="index.php" style="align-content: left;">
+                <font style="font-family: LT Saeada; font-size:25px; color:#605678;">Repair Helper</font>
+                 <font style="font-family: LT Saeada; font-size:15px; color:#605678;">Admin Panel</font>
+            </a>
+        </div>
+        <div class="col-sm-1"></div>
+    </div>    
+
+    <div class="row content">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-4 rounded" style="background-color: white; height:450px ;margin-top: 40px; margin-bottom: 40px; margin-right: 20px;margin-left:20px ;">
+            <form class="form" method="post" action="adminsignin.php">
+                <div class="mb-4" style="padding:15px; text-align: center;">
+                    <font style="font-size:20px; color:#605678; font-weight: bold;">Welcome Back!</font><br>
+                    <font style="font-size:15px; color:#605678;">Sign in to your account</font>
+                </div>
+
+                <div class="form-label-group">
+                    <input type="text" name="txtUsername" class="form-control" placeholder="User Name" required>
+                    <label for="inputUserName">User Name</label>
+                </div>
+
+                <div class="form-label-group" style="margin-top: 10px;">
+                    <input type="password" name="txtPassword" class="form-control" placeholder="Password" required>
+                    <label for="inputPassword">Password</label>
+                </div>
+
+                <div class="checkbox mb-3" style="margin-top: 10px; margin-bottom: 10px;">
+                    <label><input type="checkbox" value="remember-me"> Remember me</label>
+                </div>
+
+                <!-- Fixed the missing name attribute -->
+                <button class="custom-btn" style="width:100%" type="submit" name="signin">Sign in</button>
+
+                <div class="form-label-group" style="margin-top: 10px; margin-bottom: 10px;">
+                    <a class="dropdown-item" href="#">Forgot password?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

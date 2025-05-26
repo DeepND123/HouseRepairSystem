@@ -1,0 +1,409 @@
+<?php
+    if (isset($_GET['email'])) {
+        $email = $_GET['email']; // Get the email from URL
+    } else {
+        $email = ''; // Default to empty if not set
+    }
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+     <!--link css file-->
+  <link rel="stylesheet" href="RH-Style.css">
+
+
+
+  <script type="text/javascript" src="jquery-3.7.1.js"></script>
+    <!-- Link jQuery file -->
+    <script src="RH-scripts.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="bootsrap/css/bootstrap.min.css">
+  <script type="text/javascript" src="bootsrap/js/bootstrap.min.js"></script>
+
+  <!--fevicon-->
+  <link rel="icon" type="image/x-icon" href="Source/fevi.png">
+
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    .upload-container {
+      display: inline-block;
+      width: 100px; /* Adjust size */
+      height: 100px;
+      border: 2px dashed #ddd; /* Dashed border */
+      border-radius: 8px; /* Rounded corners */
+      text-align: center;
+      line-height: 100px; /* Vertically center the content */
+      font-size: 24px; /* Size of the "+" icon */
+      color: #888; /* Light gray color */
+      cursor: pointer;
+      background-color: #f9f9f9; /* Slightly off-white background */
+      position: relative;
+    }
+
+    .upload-container input[type="file"] {
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+
+    .upload-preview {
+      display: flex;
+      gap: 10px; /* Space between previews */
+      margin-top: 10px;
+    }
+
+    .upload-preview img {
+      width: 80px; /* Thumbnail size */
+      height: 80px;
+      object-fit: cover;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .custom-button {
+  background-color: white;
+  border-color: #605678;
+  color: #605678;
+  font-weight: bold;
+  padding: 15px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+   }
+
+   .custom-button:hover {
+    background-color: #605678;
+    color: white;
+   }
+
+
+  
+
+  </style>
+
+    <title>Add new Product</title>
+
+</head>
+
+<body class="container-fluid" style="background-color: #F8FAFC;">
+
+ <div class="row"  style="margin-top:10px ; margin-bottom: 10px;">
+   
+    <div class="col-sm-12"  style="text-align: left; margin-bottom:20px; font-size:20px;color: #605678;font-weight: bold;">Add Product</div>
+   
+  </div>
+
+
+    <form action="upload.php" method="POST" enctype="multipart/form-data">
+
+
+        <div class="card">
+  <div class="card-header">
+    <h5 class="card-title">Basic Information</h5>
+  </div>
+
+  <div class="card-body">
+   
+        <div class="form-group">
+                  <label>* Product Name</label>
+                  <input type="text"  class="form-control" name="names" placeholder="name" required><br>
+                      <br>
+                  <label>* Catogory</label>
+                  <select id="inputCato" class="form-control" name="txtCato">
+                                                            <option selected>Choose...</option>
+                                                            <option>Power Tools </option>
+                                                            <option>Hand Tools</option>
+                                                            <option>Electrical Components</option>
+                                                            <option>Plumbing Supplies</option>
+                                                            <option>Fasteners</option>
+                                                            <option>Construction Materials</option>
+                                                            <option>Woodworking Tools</option>
+                                                            <option>Automotive Tools</option>
+                                                            <option>Garden Tools</option>
+                                                            <option>Safety Equipment</option>
+                                                            <option>Home Repair Essentials</option>
+                                                            <option>Electronics Repair</option>
+                                                            <option>Lighting and Fixtures</option>
+                                                            <option>HVAC Components</option>
+                                                            <option>Cleaning and Maintenance</option>
+                                                            <option>Miscellaneous</option>
+                                              </select>
+                     <br>
+                 
+                  <label for="product-images">* Product Images</label><br>
+                  <div class="upload-container">
+                    <span>+</span>
+                    <input type="file" name="image" id="product-images" accept="image/*" multiple>
+                  </div>
+                  <div class="upload-preview" id="preview"></div>
+                
+        </div>                  
+    </div>
+</div>
+
+
+
+<br>
+
+<div class="card">
+  <div class="card-header">
+    <h5 class="card-title">Product Specification</h5>
+    <p>Fill more product specification will increase product searchability.</p>
+  </div>
+
+  <div class="card-body">
+   
+        <div class="form-group">
+                  <div class="row">
+                     <div class="col-sm-6">
+                      <label>Brand</label>
+                      <input type="text" class="form-control" name="txtPbrand" placeholder="Unbrand" required >
+                     </div>
+                     <div class="col-sm-6">
+                       <div class="form-group">
+                        <label>Number of Pieces in Set</label>
+                        <input type="text"  class="form-control" name="txtPnumOfpice" placeholder="number of pieses" required>
+                        </div>
+                     </div>
+                    </div><br>
+                    <div class="row">
+                     <div class="col-sm-6">
+                      <label>Material</label>
+                      <input type="text" class="form-control" name="txtMaterial" placeholder="Material" required >
+                     </div>
+                     <div class="col-sm-6">
+                       <div class="form-group">
+                        <label>Model</label>
+                        <input type="text"  class="form-control" name="txtmodel" placeholder="Model" required>
+                        </div>
+                     </div>
+                    </div><br>          
+                
+        </div>                  
+    </div>
+</div>
+<br>
+
+
+
+
+
+
+
+
+
+<div class="card">
+  <div class="card-header">
+    <h5 class="card-title">Price & Stock</h5>
+  </div>
+
+  <div class="card-body">
+   
+        <div class="form-group">
+                    
+                    <table class="table">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">Price</th>
+                        <th scope="col">Special price</th>
+                        <th scope="col">Stock</th>
+                        <th scope="col">SelerSKU</th>
+                        <th scope="col">Free Item</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><input type="text" class="form-control" name="txtPrice" placeholder=" Rs." required ></td>
+                        <td><input type="text" class="form-control" name="txtSprice" placeholder="Add" ></td>
+                        <td><input type="text" class="form-control" name="txtStock" placeholder=" Quantity" required ></td>
+                        <td><input type="text" class="form-control" name="txtSKU" placeholder=" SKU"></td>
+                        <td><input type="text" class="form-control" name="txtFreeItem"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+
+        </div>                  
+    </div>
+</div>
+<br>
+
+
+
+<div class="card">
+  <div class="card-header">
+    <h5 class="card-title">Product Description</h5>
+    <p>Main Description</p>
+  </div>
+
+  <div class="card-body">
+   
+        <div class="form-group">   
+          <textarea class="form-control" name="txtdescriotion" rows="15"></textarea>  
+        </div>
+                     
+  </div>                  
+ </div>
+
+ <br>
+
+ <div class="card">
+  <div class="card-header">
+    <h5 class="card-title">Shipping & Warrenty</h5>
+  </div>
+
+  <div class="card-body">
+   
+        <div class="form-group">
+                  <div class="row">
+                     <div class="col-sm-4">
+                      <label>Package weight</label>
+                      <input type="text" class="form-control" name="txtWeight" placeholder="KG">
+                     </div>
+                  </div><br>
+
+                  <div class="row">
+                      <label>Package Length(cm) * Width(cm) * Height(cm)</label>
+                      <div class="col-sm-4">
+                      <input type="text" class="form-control" name="txtLength" placeholder="cm" required >
+                    </div>
+                    <div class="col-sm-4">
+                      <input type="text"  class="form-control" name="txtwidth" placeholder="cm" required>
+                    </div>
+                    <div class="col-sm-4">
+                      <input type="text"  class="form-control" name="txtheight" placeholder="cm" required>
+                    </div>
+                  </div>
+                  <br>
+
+                  <div class="row">
+                  <div class="col-sm-4">
+                  <label>Curier Charges</label>
+                      <input type="text" class="form-control" name="txtCCharge" placeholder="Rs.">
+                     </div>
+              </div><br>  
+              <div class="row">
+                  <div class="col-sm-4">
+                  <label>Warenty</label>
+                      <input type="text" class="form-control" name="txtWarenty" placeholder="Month">
+                      <!--input type="text" name="email" value="<?php echo $email; ?>" /-->
+                     </div>
+              </div><br>         
+                
+        </div>                  
+    </div>
+</div>
+
+
+<input type="hidden" name="email" value="<?php echo $email; ?>" />
+
+
+
+<br>
+<br>
+
+
+ <div class="card">
+  <div class="card-body" style="text-align: right;">
+    <button class="custom-button" type="submit" name="signup">Cancel</button>
+    <button class="custom-btn" type="submit" name="addProduct">Add Product</button>
+  </div>
+</div>
+
+
+
+
+    </form>
+
+
+
+
+
+    <script>
+   const input = document.getElementById('product-images');
+   const preview = document.getElementById('preview');
+
+   input.addEventListener('change', () => {
+   preview.innerHTML = ''; // Clear previous previews
+    const files = Array.from(input.files);
+
+    files.forEach(file => {
+     if (file.type.startsWith('image/')) { // Validate image type
+     const img = document.createElement('img');
+      img.src = URL.createObjectURL(file);
+      img.alt = file.name; // Optional alt text
+      preview.appendChild(img);
+
+     // Release object URL memory after the image loads
+      img.onload = () => URL.revokeObjectURL(img.src);
+        }
+       });
+    });
+ </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!----------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Image</title>
+</head>
+<body>
+    <h1>Upload Image</h1>
+    <form action="upload.php" method="POST" enctype="multipart/form-data">
+
+        <label for="image">Choose an image:</label>
+        <lable>Name</lable><br>
+         <input type="text"  class="form-control" name="names" placeholder="name" required><br>
+        <input type="file" name="image" id="image" accept="image/*" required>
+        <button type="submit">Upload</button><br>
+        <a href="fetch.php">see</a>
+        
+    </form>
+</body>
+</html>
+-->

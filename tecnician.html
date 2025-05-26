@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Layout</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container-fluid {
+            display: flex;
+            height: 100vh;
+        }
+        .text-side {
+            flex: 1;
+            background: black;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start; /* Aligns content to the left */
+            padding: 40px;
+        }
+        .text-side p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .text-side h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+        .text-side h1 span {
+            color: yellow;
+        }
+        .text-side .line {
+            display: inline-block;
+            width: 50px;
+            height: 3px;
+            background: yellow;
+            margin-left: 10px;
+        }
+        .image-side {
+            flex: 1;
+            background: url('Tech.jpg') center/cover no-repeat;
+        }
+        .btn {
+            display: inline-block;
+            background: yellow;
+            color: black;
+            text-transform: uppercase;
+            padding: 10px 20px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-fluid">
+    <!-- Text Side -->
+    <div class="text-side">
+        <p>
+            24/7 Emergency Call
+            <span class="line"></span>
+        </p>
+        <h1>
+            We Provide Best <span>Technician</span> Services That You Can Trust
+        </h1>
+        <p>You want to provide best service to customer for anytime.</p>
+        <a href="#" class="btn">Appointment</a>
+    </div>
+
+    <!-- Image Side -->
+    <div class="image-side"></div>
+
+</div>
+<div class="row">
+         <div class="col mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">Give Appoinment</h2>
+                            <p class="card-text">Check Customer requests and giving apponments.</p>
+                        </div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="">More Info</a></div>
+                    </div>
+        </div>
+        <div class="col mb-3">
+            <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">Upload Previous Works</h2>
+                            <p class="card-text">Upload your completed previous works images.</p>
+                        </div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="">More Info</a></div>
+                    </div>
+        </div>
+        <div class="col mb-3">
+            <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">Communicate with Customers</h2>
+                            <p class="card-text">Communicate with customer and known about the work and give a quatation and Available time.</p>
+                        </div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="">More Info</a></div>
+                    </div>
+        </div>
+        <div class="col mb-3">
+            <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">Reviews</h2>
+                            <p class="card-text">Checking the reviews Customers given to you and can Give a feedback about Customer.</p>
+                        </div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="">More Info</a></div>
+                    </div>
+        </div>
+    </div>
+    
+    <div class="row" >
+ <div class="col-sm-5">
+     <h5>About Us</h5>
+                    <p>We are committed to providing the best solutions for our clients to find the best technician.</p>
+ </div>
+ <div class="col-sm-3">
+     <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a class="dropdown-item" href="Aboutus.php">About us</a></li>
+                        <li><a class="dropdown-item" href="#">Repair Helper Stores</a></li>
+                        <li><a class="dropdown-item" href="ProCenter.html">Be a Pro</a></li>
+                        <li><a class="dropdown-item" href="Seller.html">Sell on Repair Helper</a></li>
+                        <li><a class="dropdown-item" href="">Privacy Policy</a></li>
+                        <li><a class="dropdown-item" href="#">Terms & Conditions</a></li>
+                    </ul>
+ </div>
+ <div class="col-sm-4">
+     <h5>Follow Us</h5>
+                    <table style="width:50%">
+                        <tr>
+                            <td><a href="#"><i class="bi bi-facebook" style="font-size: 20px;color: white;"></i></a></td>
+                            <td><a href="#"><i class="bi bi-twitter" style="font-size: 20px;color: white;"></i></a></td>
+                            <td><a href="#"><i class="bi bi-instagram" style="font-size: 20px;color: white;"></i></a></td>
+                            <td><a href="#"><i class="bi bi-linkedin" style="font-size: 20px;color: white;"></i></a></td>
+                        </tr>
+                    </table>
+ </div>
+ <hr class="bg-white">
+  <div class="row">
+                <div class="col-sm-12 text-center">
+                    <p>Repair Helper. All Rights Reserved.</p>
+                </div>
+            </div>
+ </div>
+ 
+</body>
+</html>

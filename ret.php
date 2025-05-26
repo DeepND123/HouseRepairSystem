@@ -1,0 +1,97 @@
+<?php
+// Access to the database server
+$con = mysqli_connect("localhost", "Repair_Helper_DB_Server", "Madush@RepairHelper", "repair_helper");
+
+// Check the connection
+if (!$con) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+// Query to fetch all products
+$sql = "SELECT * FROM product";
+$result = mysqli_query($con, $sql);
+
+// Start HTML output
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Listing</title>
+    <style>
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .product {
+            border: 1px solid #ddd;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .product h3 {
+            font-size: 1.2em;
+            color: #333;
+        }
+        .product p {
+            font-size: 1em;
+            color: #666;
+        }
+        .product-price {
+            font-size: 1.5em;
+            color: #007BFF;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Our Products</h1>
+    <div class="product-list">
+        <?php
+        // Check if there are products
+        if (mysqli_num_rows($result) > 0) {
+            // Loop through the results and display the product data
+            while ($row = mysqli_fetch_assoc($result)) {
+                $productName = $row['product_name'];
+                $category = $row['catogory'];
+                $brand = $row['brand'];
+                $price = $row['price'];
+                $description = $row['product_description'];
+                $images = json_decode($row['product_images']); // Decode the JSON array of images
+                ?>
+                <div class="product">
+                    <h3><?php echo htmlspecialchars($productName); ?></h3>
+                    <p><strong>Category:</strong> <?php echo htmlspecialchars($category); ?></p>
+                    <p><strong>Brand:</strong> <?php echo htmlspecialchars($brand); ?></p>
+                    <p class="product-price">$<?php echo htmlspecialchars($price); ?></p>
+                    <p><strong>Description:</strong> <?php echo htmlspecialchars($description); ?></p>
+                    <div class="product-images">
+                        <?php
+                        if (!empty($images)) {
+                            foreach ($images as $image) {
+                                echo "<img src='" . htmlspecialchars($image) . "' alt='" . htmlspecialchars($productName) . "'>";
+                            }
+                        }
+                        ?>
+                    </div>
+                </div>
+                <?php
+            }
+        } else {
+            echo "<p>No products found.</p>";
+        }
+        ?>
+    </div>
+</body>
+</html>
+<?php
+// Close the connection
+mysqli_close($con);
+?>

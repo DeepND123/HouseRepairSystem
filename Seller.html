@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html><!--lang="en" data-bs-theme="dark"-->
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!--link css file-->
+	<link rel="stylesheet" href="RH-Style.css">
+
+
+
+	<script type="text/javascript" src="jquery-3.7.1.js"></script>
+		<!-- Link jQuery file -->
+   <script src="RH-scripts.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="bootsrap/css/bootstrap.min.css">
+	<script type="text/javascript" src="bootsrap/js/bootstrap.min.js"></script>
+
+	<!--fevicon-->
+	<link rel="icon" type="image/x-icon" href="Source/fevi.png">
+
+	
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+	<title>Repair Helper</title>
+
+	 <style>
+        
+        body {
+            background-image: url('Source/pro.jpg'); 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+        }
+
+      
+        .content {
+            position: relative;
+            z-index: 1; 
+            padding: 20px;
+        }
+    </style>
+
+	
+</head>
+</head>
+
+
+<body class="container-fluid">
+
+
+			<div class="row content" style="background-color:white">
+				   <div class="col-sm-1">
+				   		<a class="navbar-brand" href="index.php" style="align-content: left;">
+				   			<font style="font-family: LT Saeada; font-size:25px; color:#605678;">Repair Helper</font>
+				   		</a>
+				   </div>
+				   <div class="col-sm-1"></div>
+		    </div>	
+
+
+				<div class="row content">
+				   <div class="col-sm-1"></div>
+	               <div class="col-sm-6">
+	               	<font style="color: #605678; font-family: Montserrat; font-weight: bold; font-size:50px">Become A Repair Helper Seller Today!</font>
+	               </div>
+	               <div class="col-sm-4 rounded" style="background-color: white; height:450px ;margin-top: 40px; margin-bottom: 40px; margin-right: 20px;margin-left:20px ;">
+	    					    <form method="post" action="SellerSignin.php">
+	    					       <div class="mb-4" style=" padding:15px;">
+                               <font style="font-size:20px; color:#605678;">Log in with password</font><br> 
+                              </div>
+
+                              <div class="form-label-group">
+                                <input type="email" name="txtEmail"  class="form-control" placeholder="Email address" required autofocus>
+                                <label for="inputEmail">Emai address</label>
+                              </div>
+
+                              <div class="form-label-group">
+                                <input type="password" name="txtPassword"  class="form-control" placeholder="Password" required>
+                                <label for="inputPassword">Password</label>
+                              </div>
+
+                              <div class="checkbox mb-3" style="margin-top: 30px; margin-bottom: 30px;">
+                                <label>
+                                  <input type="checkbox" value="remember-me"> Remember me
+                                </label>
+                              </div>
+                                <button class="custom-btn" style="width:100%" type="submit" name="sellersignin">Sign in</button>
+
+                                <div class="form-label-group" style="margin-top: 10px; margin-bottom: 10px;">
+                                    <a class="dropdown-item" id="toggle-btn" href="#">Sign up as a Seller</a>
+                                    <a class="dropdown-item" href="#">Forgot password?</a>
+                                </div>
+                              </form>
+	                     </div>
+
+	                    <div class="col-sm-1"></div>
+
+	                </div>
+
+
+	              <!-- Pop-up container -->
+        <div id="Register-overlay"></div>
+            <div id="Register-popup">
+                     <div class="row"  style="margin-top:10px ; margin-bottom: 10px;">
+                          <div class="col-sm-12"  style="text-align: center; margin-bottom:20px; font-size:25px;color:#605678;">Seller Sign up</div>
+                          <div class="col-sm-1"></div>
+                            <div class="col-sm-10">
+
+                            <form class="form" method="post" action="SellerLogin.php">
+                              <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label>Email address</label>
+                                        <input type="email" class="form-control" name="txtEmailAddress" placeholder="Email address" required >
+                                  </div>
+                                  <div class="col-sm-6">
+                                       <div class="form-group">
+                                        <label for="inputPassword">Password</label>
+                                        <input type="password"  class="form-control" name="txtPassword" placeholder="Password" required>
+                                      </div>
+                                  </div>
+                                </div><br>
+
+                              <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="textbox"  class="form-control" name="fullName" placeholder="Enter Your Name " required >
+                              </div><br>
+
+                              <div class="form-group">
+                                <label>Permenent Address</label>
+                                <input type="textbox"  class="form-control" name="txtAddress" placeholder="Apartment, studio, or floor">
+                              </div><br>
+
+                              <div class="row">
+                                    <div class="col-sm-4">
+                                      <div class="form-group">
+                                        <label>City</label>
+                                        <input type="textbox"  class="form-control" name="txtCity" placeholder="City" required >
+                                      </div>
+                                  </div>
+
+                                  <div class="col-sm-4">
+                                          <div class="form-group">
+                                              <label for="inputState">State</label>
+                                              <select id="inputState" class="form-control" name="txtProvince">
+                                                            <option selected>Choose...</option>
+                                                            <option>Central Province </option>
+                                                            <option>Eastern Province</option>
+                                                            <option>Northern Province</option>
+                                                            <option>North Western Province</option>
+                                                            <option>North Central Province</option>
+                                                            <option>Southern Province</option>
+                                                            <option>Sabaragamuwa Province</option>
+                                                            <option>Uva Province</option>
+                                                            <option>Western Province</option>
+                                              </select>
+                                            </div>
+                                        </div>
+
+                                <div class="col-sm-4">
+                                   <div class="form-group">
+                                    <label for="inputEmail">Zip Code</label>
+                                    <input type="textbox"  class="form-control" name="txtZipCode" placeholder="Zip Code" required autofocus>
+                                  </div>
+                              </div><br>
+                                   
+                            </form>
+                           </div>
+
+                            <div class="col-sm-1"></div><br>
+
+                            <div class="col-sm-12">
+                                <label>
+                                     <input type="checkbox" required> By creating and/or using your account, you agree to our<a href="#"> Terms of Use</a>  and <a href="#">Privacy Policy</a>.
+                                </label>
+                            </div><br>
+
+                             <button class="custom-btn" style="width:100%" type="submit" name="sellerSignup">Sign up</button>
+                        </div>
+                    </div>
+
+	                
+
+	
+
+
+</body>
+</html>
